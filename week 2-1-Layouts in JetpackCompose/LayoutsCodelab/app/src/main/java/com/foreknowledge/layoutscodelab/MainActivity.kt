@@ -3,8 +3,12 @@ package com.foreknowledge.layoutscodelab
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.padding
+import androidx.compose.material.Scaffold
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.foreknowledge.layoutscodelab.ui.theme.LayoutsCodelabTheme
 
@@ -21,7 +25,17 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun LayoutsCodelab() {
-    Text(text = "Hi there!")
+    Scaffold { innerPadding ->
+        BodyContent(modifier = Modifier.padding(innerPadding))
+    }
+}
+
+@Composable
+fun BodyContent(modifier: Modifier = Modifier) {
+    Column(modifier = modifier) {
+        Text(text = "Hi there!")
+        Text(text = "Thanks for going through the Layouts codelab")
+    }
 }
 
 @Preview(showBackground = true)
