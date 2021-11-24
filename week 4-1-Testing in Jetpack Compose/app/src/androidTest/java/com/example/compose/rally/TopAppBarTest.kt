@@ -53,4 +53,9 @@ class TopAppBarTest {
             )
             .assertExists()
     }
+
+    @Test
+    fun rallyTopAppBarTest_tabSelection() {
+        // TODO: Verify that clicking on the different tabs of the RallyTopAppBar changes the selection.
+    }
 }
