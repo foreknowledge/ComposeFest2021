@@ -42,10 +42,15 @@ class TopAppBarTest {
             )
         }
 
-        composeTestRule.onRoot().printToLog("currentLabelExists")
-
+        // UnmergedTree에서 원하는 element를 찾는 방법
         composeTestRule
-            .onNodeWithContentDescription(RallyScreen.Accounts.name)
+            .onNode(
+                hasText(RallyScreen.Accounts.name.toUpperCase()) and
+                        hasParent(
+                            hasContentDescription(RallyScreen.Accounts.name)
+                        ),
+                useUnmergedTree = true
+            )
             .assertExists()
     }
 }
